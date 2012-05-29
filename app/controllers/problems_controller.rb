@@ -5,7 +5,7 @@ class ProblemsController < ApplicationController
   # GET /problems
   # GET /problems.json
   def index
-    @problems = Problem.all
+    @problems = current_user.problems
 
     respond_to do |format|
       format.html # index.html.erb

@@ -14,8 +14,12 @@
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
-<%= link_to oauth_login_path( :twitter), {:alt => 'Login using twitter', :title => 'Login using twitter'} do %>
-  <% image_tag 'twitter_128.png', :alt => 'Login using twitter', :title => 'Login using twitter' %>
+<%= link_to oauth_login_path( :facebook), {:alt => 'Login using facebook', :title => 'Login using facebook'} do %>
+  <% image_tag 'facebook_128.png', :alt => 'Login using facebook', :title => 'Login using facebook' %>
+<% end %>
+
+<%= link_to oauth_login_path( :google_oauth2), {:alt => 'Login using google', :title => 'Login using google'} do %>
+  <% image_tag 'google_128.png', :alt => 'Login using google', :title => 'Login using google' %>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
