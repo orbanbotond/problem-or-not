@@ -14,7 +14,7 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = "Authentication successful."
       redirect_to problems_url
     else
-      user = User.new
+      user = User.find_by_email(omniauth['info']['email']) || User.new
       user.apply_omniauth(omniauth)
       if user.save
         flash[:notice] = "Signed in successfully."

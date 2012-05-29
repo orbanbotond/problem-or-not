@@ -4,18 +4,12 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @problems.each do |problem| %>
   <tr>
-    <td><%= problem.title %></td>
-    <td><%= problem.description %></td>
-    <td><%= link_to 'Show', problem %></td>
-    <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
-    <td><%= link_to 'Destroy', problem, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to problem.title, problem %></td>
+    <td><%= link_to problem.description.first(15) + '...', problem %></td>
   </tr>
 <% end %>
 </table>

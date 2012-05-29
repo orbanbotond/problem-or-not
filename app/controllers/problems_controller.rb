@@ -2,15 +2,8 @@ class ProblemsController < ApplicationController
 
   before_filter :authenticate_user!
 
-  # GET /problems
-  # GET /problems.json
   def index
     @problems = current_user.problems
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @problems }
-    end
   end
 
   # GET /problems/1
