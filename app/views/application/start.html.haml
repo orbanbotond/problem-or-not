@@ -1,8 +1,7 @@
 #welcome
-  %p Welcome to 'Problem Or Not'
-  %p This application is indended to manage you problems in general.
-  %p You can analyze them, assign tasks to them.
+  %h2.centre.nice-font Welcome to 'Problem Or Not'
+  %p.nice-font This application is indended to manage you problems in general.
+  %p.nice-font You can analyze them, assign tasks to them.
 #action
-  = link_to 'Sign in'
-  = link_to 'Sign up'
-  
+  .rounded.login
+    = link_to 'Sign in or up', new_user_session_path
