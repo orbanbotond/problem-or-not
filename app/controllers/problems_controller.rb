@@ -2,6 +2,13 @@ class ProblemsController < ApplicationController
 
   before_filter :authenticate_user!
 
+  def version
+    v = Version.find(params[:version])
+    @problem = v.reify
+    flash.now[:notice] = "This is a historical element created at: #{v.created_at}"
+    render :show
+  end
+
   def index
     @problems = current_user.problems
   end

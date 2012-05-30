@@ -1,0 +1,20 @@
+.problem
+  %p#notice= notice
+
+  %p
+    %b Title:
+    = @problem.title
+
+  %p
+    %b Description:
+    = @problem.description_markdown
+
+  .left
+    = link_to 'Edit', edit_problem_path(@problem)
+    = link_to 'Back to List', problems_path
+
+  .right
+    - if @problem.previous_version
+      = link_to 'Back in Time', problem_version_path(@problem, @problem.previous_version.version.id)
+    - unless @problem.live?
+      = link_to 'Forward in Time', @problem.next_version ? problem_version_path(@problem, @problem.next_version.version.id) : @problem

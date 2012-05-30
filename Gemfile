@@ -14,6 +14,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'heroku'
 gem 'haml'
+gem 'bluecloth'
+gem 'paper_trail', '~> 2'
 
 # Gems used only for assets and not required
 # in production environments by default.

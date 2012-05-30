@@ -9,7 +9,7 @@
 <% @problems.each do |problem| %>
   <tr>
     <td><%= link_to problem.title, problem %></td>
-    <td><%= link_to problem.description.first(15) + '...', problem %></td>
+    <td><%= link_to problem.description.first(45) + '...', problem %></td>
   </tr>
 <% end %>
 </table>

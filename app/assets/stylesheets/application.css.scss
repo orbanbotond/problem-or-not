@@ -62,3 +62,22 @@
 .clear{
   clear: both;
 }
+
+header #user_info {
+  float: right;
+  margin-bottom: 10px;
+
+  p {
+    display: inline;
+  }
+}
+
+div.left{
+  float: left;
+  display: inline-block;
+}
+
+div.right{
+  float: right;
+  display: inline-block;
+}

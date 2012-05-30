@@ -6,6 +6,8 @@ ProblemOrNot::Application.routes.draw do
   resources :authentications
   resources :problems
 
+  get 'problems/:id/version/:version' => 'problems#version', :as => 'problem_version'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
