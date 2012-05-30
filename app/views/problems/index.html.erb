@@ -4,12 +4,18 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
+    <th class='hidden visible-on-hover-everywhere'>Action</th>
   </tr>
 
 <% @problems.each do |problem| %>
-  <tr>
+  <tr class='hover-table' data-hover='visible-on-hover'>
     <td><%= link_to problem.title, problem %></td>
     <td><%= link_to problem.description.first(45) + '...', problem %></td>
+    <td class='hidden visible-on-hover'>
+      <%= link_to problem, :method => :delete, :confirm => 'Are you sure want to delete?' do%>
+        <%= image_tag 'trash.png', :size => "11x14" %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>
