@@ -18,3 +18,10 @@
       = link_to 'Back in Time', problem_version_path(@problem, @problem.previous_version.version.id)
     - unless @problem.live?
       = link_to 'Forward in Time', @problem.next_version ? problem_version_path(@problem, @problem.next_version.version.id) : @problem
+  .clear
+
+  %h3 Listing comments:
+
+  = render @problem.comments
+
+  = link_to 'Comment the problem', new_problem_comment_path( @problem)

@@ -1,10 +1,13 @@
 ProblemOrNot::Application.routes.draw do
+
   devise_for :users
 
   match "/auth/:provider/callback" => 'authentications#create'
 
   resources :authentications
-  resources :problems
+  resources :problems do
+    resources :comments
+  end
 
   get 'problems/:id/version/:version' => 'problems#version', :as => 'problem_version'
 
