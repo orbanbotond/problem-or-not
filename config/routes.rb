@@ -6,6 +6,11 @@ ProblemOrNot::Application.routes.draw do
 
   resources :authentications
   resources :problems do
+    member do
+      get 'resolve'
+      post 'reopen'
+    end
+
     resources :comments
   end
 

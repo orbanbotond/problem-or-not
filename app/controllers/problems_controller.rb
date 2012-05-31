@@ -9,8 +9,15 @@ class ProblemsController < ApplicationController
     render :show
   end
 
+  def resolve
+    p = Problem.find params[:id]
+    p.resolve
+    redirect_to problems_path
+  end
+
   def index
-    @problems = current_user.problems
+    @existing = current_user.problems.existing
+    @resolved = current_user.problems.resolved
   end
 
   # GET /problems/1

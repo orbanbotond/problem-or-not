@@ -7,15 +7,35 @@
     %th
     %th.hidden.visible-on-hover-everywhere Action
 
-  - @problems.each do |problem|
+  - @existing.each do |problem|
     %tr.hover-table{:'data-hover' => 'visible-on-hover'}
       %td= link_to problem.title, problem
       %td= link_to problem.description.first(45) + '...', problem
       %th= image_tag 'chat.png', :title => "This problem has #{problem.comments.count} comments" unless problem.comments.empty?
       %td.hidden.visible-on-hover
-        = link_to problem, :method => :delete, :confirm => 'Are you sure want to delete?' do
+        = link_to problem, :method => :delete, :confirm => 'Are you sure want to delete?', :class => 'simple-link', :title => 'delete permanently' do
           = image_tag 'trash.png', :size => "11x14"
+        = link_to resolve_problem_path(problem), :confirm => 'Are you sure want to resolve?', :class => 'simple-link', :title => 'resolve problem' do
+          = image_tag 'resolve.png'
 
 %br
 
 = link_to 'New Problem', new_problem_path
+
+%br
+
+- unless @resolved.empty?
+  %h1 Resolved problems
+
+  %table
+    %tr
+      %th Title
+      %th Description
+      %th
+      %th.hidden Action
+
+    - @resolved.each do |problem|
+      %tr
+        %td= link_to problem.title, problem
+        %td= link_to problem.description.first(45) + '...', problem
+        %th= image_tag 'chat.png', :title => "This problem has #{problem.comments.count} comments" unless problem.comments.empty?
