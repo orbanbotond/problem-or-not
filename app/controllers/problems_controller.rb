@@ -1,30 +1,30 @@
 class ProblemsController < ApplicationController
-
+  load_and_authorize_resource
   before_filter :authenticate_user!
 
   def version
     v = Version.find(params[:version])
     @problem = v.reify
+    authorize! :manage, @problem
     flash.now[:notice] = "This is a historical element created at: #{v.created_at}"
     render :show
   end
 
   def resolve
     p = Problem.find params[:id]
+    authorize! :manage, p
     p.resolve
     redirect_to problems_path
   end
 
   def index
-    @existing = current_user.problems.existing
-    @resolved = current_user.problems.resolved
+    @existing = @problems.existing
+    @resolved = @problems.resolved
   end
 
   # GET /problems/1
   # GET /problems/1.json
   def show
-    @problem = Problem.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @problem }
@@ -34,25 +34,18 @@ class ProblemsController < ApplicationController
   # GET /problems/new
   # GET /problems/new.json
   def new
-    @problem = Problem.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @problem }
     end
   end
 
-  # GET /problems/1/edit
   def edit
-    @problem = Problem.find(params[:id])
   end
 
   # POST /problems
   # POST /problems.json
   def create
-    @problem = Problem.new(params[:problem])
-    @problem.user = current_user
-
     respond_to do |format|
       if @problem.save
         format.html { redirect_to @problem, notice: 'Problem was successfully created.' }
@@ -67,8 +60,6 @@ class ProblemsController < ApplicationController
   # PUT /problems/1
   # PUT /problems/1.json
   def update
-    @problem = Problem.find(params[:id])
-
     respond_to do |format|
       if @problem.update_attributes(params[:problem])
         format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
@@ -83,7 +74,6 @@ class ProblemsController < ApplicationController
   # DELETE /problems/1
   # DELETE /problems/1.json
   def destroy
-    @problem = Problem.find(params[:id])
     @problem.destroy
 
     respond_to do |format|

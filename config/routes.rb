@@ -11,7 +11,7 @@ ProblemOrNot::Application.routes.draw do
       post 'reopen'
     end
 
-    resources :comments
+    resources :comments, :only => [:new, :edit, :create, :update, :destroy]
   end
 
   get 'problems/:id/version/:version' => 'problems#version', :as => 'problem_version'

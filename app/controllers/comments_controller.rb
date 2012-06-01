@@ -1,45 +1,13 @@
 class CommentsController < ApplicationController
   respond_to :html, :xml, :json
 
-  # GET /comments
-  # GET /comments.json
-  def index
-    @comments = Comment.all
+  load_and_authorize_resource :problem
+  load_and_authorize_resource :through => :problem
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @comments }
-    end
-  end
-
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
-    @comment = Comment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @comment }
-    end
-  end
-
-  # GET /comments/new
-  # GET /comments/new.json
-  def new
-    @problem = Problem.find params[:problem_id]
-    @comment = @problem.comments.build
-  end
-
-  # GET /comments/1/edit
-  def edit
-    @comment = Comment.find(params[:id])
-  end
 
   # POST /comments
   # POST /comments.json
   def create
-    @problem = Problem.find params[:problem_id]
-    @comment = @problem.comments.build params[:comment]
     if @comment.save
       redirect_to @comment.problem
     else
@@ -50,8 +18,6 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.json
   def update
-    @comment = Comment.find(params[:id])
-
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
@@ -66,7 +32,6 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @comment = Comment.find(params[:id])
     @comment.destroy
 
     respond_to do |format|
