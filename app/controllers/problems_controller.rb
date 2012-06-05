@@ -2,6 +2,10 @@ class ProblemsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!
 
+  def search
+    @result = current_user.problems.text_search(params[:query])
+  end
+
   def version
     v = Version.find(params[:version])
     @problem = v.reify

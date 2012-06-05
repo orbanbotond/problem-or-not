@@ -34,6 +34,12 @@ class Problem < ActiveRecord::Base
 
   end
 
+  class <<self
+    def text_search(query)
+      where('title @@ :q OR description @@ :q', q: query)
+    end
+  end
+
   has_paper_trail
 
   def description_markdown
