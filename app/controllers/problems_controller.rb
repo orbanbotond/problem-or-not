@@ -3,7 +3,8 @@ class ProblemsController < ApplicationController
   before_filter :authenticate_user!
 
   def search
-    @result = current_user.problems.text_search(params[:query])
+    PgSearch.multisearch_options = {:using => { :tsearch => { :dictionary => "hungarian" } }, :ignoring => :accents}
+    @result = PgSearch.multisearch(params[:query]).map{ |x| x.searchable }
   end
 
   def version

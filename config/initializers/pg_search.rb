@@ -1,7 +1,7 @@
 PgSearch.multisearch_options = {
   :using => {
       :tsearch => {
-        :dictionary => "hungarian"
+        :dictionary => "english"
       }# ,
       # :trigram => {}
     }# ,
