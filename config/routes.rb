@@ -11,6 +11,10 @@ ProblemOrNot::Application.routes.draw do
       post 'reopen'
     end
 
+    collection do
+      post 'search'
+    end
+
     resources :comments, :only => [:new, :edit, :create, :update, :destroy]
   end
 

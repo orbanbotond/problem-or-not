@@ -19,6 +19,7 @@ gem 'paper_trail', '~> 2'
 gem 'state_machine'
 gem 'cancan'
 gem 'taps'
+gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
 group :development do
   #for pushing the db to heroku :(
