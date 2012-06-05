@@ -1,4 +1,21 @@
+# == Schema Information
+#
+# Table name: problems
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#  user_id     :integer
+#  state       :string(255)     default("existing")
+#
+
 class Problem < ActiveRecord::Base
+
+  include PgSearch
+  multisearchable :against => [:title, :description]
+
   belongs_to :user
   has_many :comments
 

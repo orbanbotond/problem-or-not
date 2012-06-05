@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ctran/annotate_models.git
+  revision: 18cd39ad01829deba5aa34634b8540d6675ab978
+  specs:
+    annotate (2.4.1.beta1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -108,6 +114,9 @@ GEM
       activerecord (~> 3.0)
       railties (~> 3.0)
     pg (0.13.2)
+    pg_search (0.5)
+      activerecord (>= 3)
+      activesupport (>= 3)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -165,6 +174,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate!
   bluecloth
   cancan
   coffee-rails
@@ -178,6 +188,7 @@ DEPENDENCIES
   omniauth-twitter
   paper_trail (~> 2)
   pg
+  pg_search
   rails (= 3.2.3)
   sass-rails
   state_machine
