@@ -1,3 +1,5 @@
+= link_to 'Back to List', problems_path
+
 .problem
   %p#notice= notice
 
@@ -11,7 +13,8 @@
 
   .left
     = link_to 'Edit', edit_problem_path(@problem)
-    = link_to 'Back to List', problems_path
+    - unless @problem.resolved?
+      = link_to 'Resolve', resolve_problem_path(@problem), :confirm => 'Are you sure want to resolve?'
 
   .right
     - if @problem.previous_version

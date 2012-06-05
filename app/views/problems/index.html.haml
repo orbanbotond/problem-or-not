@@ -3,14 +3,12 @@
 %table
   %tr
     %th Title
-    %th Description
     %th
     %th.hidden.visible-on-hover-everywhere Action
 
   - @existing.each do |problem|
     %tr.hover-table{:'data-hover' => 'visible-on-hover'}
-      %td= link_to problem.title, problem
-      %td= link_to problem.description.first(45) + '...', problem
+      %td= link_to problem.title.first(45), problem
       %th= image_tag 'chat.png', :title => "This problem has #{problem.comments.count} comments" unless problem.comments.empty?
       %td.hidden.visible-on-hover
         = link_to problem, :method => :delete, :confirm => 'Are you sure want to delete?', :class => 'simple-link', :title => 'delete permanently' do
@@ -30,12 +28,10 @@
   %table
     %tr
       %th Title
-      %th Description
       %th
       %th.hidden Action
 
     - @resolved.each do |problem|
       %tr
         %td= link_to problem.title, problem
-        %td= link_to problem.description.first(45) + '...', problem
         %th= image_tag 'chat.png', :title => "This problem has #{problem.comments.count} comments" unless problem.comments.empty?
