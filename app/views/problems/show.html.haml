@@ -1,4 +1,4 @@
-= link_to request.referrer ? 'Back to search results' : 'Back to list', request.referrer ? request.referrer : problems_path
+= link_to request.referrer =~ /search/ ? 'Back to search results' : 'Back to list', request.referrer =~ /search/ ? request.referrer : problems_path
 
 .problem
   %p#notice= notice
@@ -9,7 +9,7 @@
 
   %p
     %b Description:
-    = @problem.description_markdown
+    = @problem.description_markdown( params[:query])
 
   .left
     = link_to 'Edit', edit_problem_path(@problem)

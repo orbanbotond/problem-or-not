@@ -13,11 +13,23 @@
 
 class Problem < ActiveRecord::Base
 
+  include Highlighter
+  
+  def title_highlighted(search_term)
+    highlight( title, search_term)
+  end
+
+  def description_highlighted(search_term)
+    highlight( description.unaccent, search_term || '')
+  end
+
   include PgSearch
   multisearchable :against => [:title, :description]
 
   belongs_to :user
   has_many :comments
+
+  has_paper_trail
 
   scope :existing, where( :state => :existing)
   scope :resolved, where( :state => :resolved)
@@ -34,15 +46,7 @@ class Problem < ActiveRecord::Base
 
   end
 
-  class <<self
-    def text_search(query)
-      where('title @@ :q OR description @@ :q', q: query)
-    end
-  end
-
-  has_paper_trail
-
-  def description_markdown
-    BlueCloth.new(read_attribute(:description)).to_html.html_safe
+  def description_markdown(search_term = '')
+    BlueCloth.new(description_highlighted(search_term)).to_html.html_safe
   end
 end

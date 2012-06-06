@@ -6,4 +6,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
+//= require_self
+
+$(function(){
+  var selector = "section strong em";
+  if($(selector).length > 0){
+    setInterval(function(){
+      $(selector).effect("highlight", { times:20, color: 'lightgreen' }, 1000);
+    }, 2000);
+  }
+});

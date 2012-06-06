@@ -2,7 +2,7 @@
 
 =link_to 'Back to problems list', problems_path
 
-%p= "Search result for:#{params[:query]}"
+%p= "Search result for:#{params[:query].split.map{|x| '\'' + x + '\''}.join(' ')}"
 
 %ul
   = render @result
