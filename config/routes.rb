@@ -12,7 +12,7 @@ ProblemOrNot::Application.routes.draw do
     end
 
     collection do
-      post 'search'
+      get 'search'
     end
 
     resources :comments, :only => [:new, :edit, :create, :update, :destroy]

@@ -5,6 +5,7 @@ class ProblemsController < ApplicationController
   def search
     PgSearch.multisearch_options = {:using => { :tsearch => { :dictionary => "hungarian" } }, :ignoring => :accents}
     @result = PgSearch.multisearch(params[:query]).map{ |x| x.searchable }
+    response.headers['query'] = params[:query]
   end
 
   def version
@@ -30,6 +31,7 @@ class ProblemsController < ApplicationController
   # GET /problems/1
   # GET /problems/1.json
   def show
+    request.headers
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @problem }

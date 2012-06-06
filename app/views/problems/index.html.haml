@@ -1,6 +1,4 @@
-.search
-  = form_tag search_problems_path do
-    = text_field_tag 'query', '', :placeholder => 'search term'
+= render :partial => 'quick_search'
 
 %h1 Listing problems
 

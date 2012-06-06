@@ -1,4 +1,4 @@
-= link_to 'Back to List', problems_path
+= link_to request.referrer ? 'Back to search results' : 'Back to list', request.referrer ? request.referrer : problems_path
 
 .problem
   %p#notice= notice
