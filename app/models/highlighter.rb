@@ -13,6 +13,8 @@ module Highlighter
       accented_search_string << orig[a[0]..a[1]]
     end
 
+    return orig if accented_search_string.empty?
+
     r = Regexp.new "(#{accented_search_string.join('|')})", true
     orig.gsub( r) {|match| "__*#{$&}*__"}
   end

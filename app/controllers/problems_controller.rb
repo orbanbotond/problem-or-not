@@ -5,7 +5,7 @@ class ProblemsController < ApplicationController
   def search
     PgSearch.multisearch_options = {:using => { :tsearch => { :dictionary => "hungarian" } }, :ignoring => :accents}
     @result = PgSearch.multisearch(params[:query]).map{ |x| x.searchable }
-    response.headers['query'] = params[:query]
+    @result = @result.reject{|x| @result.include? x.problem rescue false}
   end
 
   def version
