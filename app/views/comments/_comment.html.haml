@@ -1,1 +1,7 @@
-%p= comment.oppinion
+- if params[:action] =~ /search/
+  %li
+    %p
+      = link_to comment.problem.title.first(45), problem_path(comment.problem, :query => params[:query])
+      = image_tag 'chat.png', :title => "This problem has #{comment.problem.comments.count} comments" unless comment.problem.comments.empty?
+- else
+  %p= comment.oppinion_markdown params[:query]

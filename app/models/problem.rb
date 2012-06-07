@@ -20,7 +20,7 @@ class Problem < ActiveRecord::Base
   end
 
   def description_highlighted(search_term)
-    highlight( description.unaccent, search_term || '')
+    highlight( description, search_term || '')
   end
 
   include PgSearch
