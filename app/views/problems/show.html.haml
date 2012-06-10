@@ -24,7 +24,7 @@
   .clear
 
   %h3 Listing comments:
-
-  = render @problem.comments
+  %ul.comments
+    = render @problem.comments
 
   = link_to 'Comment the problem', new_problem_comment_path( @problem)
