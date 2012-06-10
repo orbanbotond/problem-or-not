@@ -24,7 +24,10 @@
   .clear
 
   %h3 Listing comments:
+  - comments = @problem.comments.paginate(:page => params[:page])
   %ul.comments
-    = render @problem.comments
+    = render comments
+
+  = will_paginate comments
 
   = link_to 'Comment the problem', new_problem_comment_path( @problem)

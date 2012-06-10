@@ -1,0 +1,6 @@
+$('ul.comments').append('<%= j render(@problem.comments.paginate(:page => params[:page])) %>');
+<% if @problem.comments.paginate(:page => params[:page]).next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@problem.comments.paginate(:page => params[:page])) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

@@ -33,8 +33,8 @@ class ProblemsController < ApplicationController
   def show
     request.headers
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @problem }
+      format.html
+      format.js
     end
   end
 
