@@ -1,6 +1,10 @@
 class ProblemsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :except => :preview
   before_filter :authenticate_user!
+
+  def preview
+    @preview = BlueCloth.new(params[:description]).to_html.html_safe
+  end
 
   def search
     PgSearch.multisearch_options = {:using => { :tsearch => { :dictionary => "hungarian" } }, :ignoring => :accents}
@@ -41,6 +45,32 @@ class ProblemsController < ApplicationController
   # GET /problems/new
   # GET /problems/new.json
   def new
+    @problem.description = <<-HERE.strip_heredoc
+    Your problem:
+    -------------
+
+    Items that **must** have:
+
+    1. house
+    3. table
+    2. fridge
+
+    Items to be _solved_:
+
+    - It would be good to have a nice Ipad
+    - and an Apple TV
+    - an a Time capsule
+
+    [Link to Apple](http://www.apple.com/)
+
+    > Knowing others is intelligence; knowing yourself is true wisdom. Mastering others is strength; mastering yourself is true power. If you realize that you have enough, you are truly rich.
+
+         This is a preformatted text1
+         This is a preformatted text2
+    HERE
+
+    @preview = BlueCloth.new(@problem.description).to_html.html_safe
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @problem }
@@ -48,6 +78,7 @@ class ProblemsController < ApplicationController
   end
 
   def edit
+    @preview = BlueCloth.new(@problem.description).to_html.html_safe
   end
 
   # POST /problems

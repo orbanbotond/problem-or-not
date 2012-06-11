@@ -1,3 +1,22 @@
 // Place all the styles related to the problems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+blockquote {
+  font: 14px/20px italic Times, serif;
+  background-color: #faebbc;
+  border-top: 1px solid #e1cc89;
+  border-bottom: 1px solid #e1cc89;
+  margin: 2px;
+  background-image: url(openquote1.gif);
+  background-position: top left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+}
+blockquote p {
+  margin: 5px 0px 5px 0px;
+  display: block;
+  background-image: url(closequote1.gif);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}

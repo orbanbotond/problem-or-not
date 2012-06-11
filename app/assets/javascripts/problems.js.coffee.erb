@@ -3,6 +3,21 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 #TODO this need to be optimized
+post_id = null
+text = null
+        
+jQuery ->
+  $('.edit_problem textarea, .new_problem textarea,').keyup ->
+    $this = $(@)
+    if text != $this.val()
+      text = $this.val()
+      url = $this.data 'preview-url'
+      post_id = $.post url, description: text
+      ,beforeSend: ->
+        post_id.abort if post_id
+      ,complete: ->
+        post_id = null
+
 jQuery ->
   $('.hover').mouseenter ->
     $this = $(@)
