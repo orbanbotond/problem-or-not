@@ -7,7 +7,16 @@ ul.comments li{
   border: solid lightgrey 1px;
   padding-left: 10px;
   margin: 5px;
+  padding-bottom: 16px;
 
   -moz-border-radius-topleft: 0px;
   border-top-left-radius: 0px;
+
+  div.timestamp{
+    display: block;
+    float: right;
+    font-size: 8px;
+    color: lightgray;
+    margin-right: 25px;
+  }
 }

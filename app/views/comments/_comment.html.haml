@@ -4,4 +4,6 @@
       = link_to comment.problem.title.first(45), problem_path(comment.problem, :query => params[:query])
       = image_tag 'chat.png', :title => "This problem has #{comment.problem.comments.count} comments" unless comment.problem.comments.empty?
 - else
-  %li.rounded= comment.oppinion_markdown params[:query]
+  %li.rounded
+    = comment.oppinion_markdown params[:query]
+    .timestamp= "Commented at: #{comment.created_at}"
