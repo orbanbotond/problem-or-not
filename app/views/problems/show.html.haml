@@ -1,4 +1,6 @@
-= link_to request.referrer =~ /search/ ? 'Back to search results' : 'Back to list', request.referrer =~ /search/ ? request.referrer : problems_path
+.operations
+  = link_to request.referrer =~ /search/ ? 'Back to search results' : 'Back to list', request.referrer =~ /search/ ? request.referrer : problems_path
+  = link_to 'Edit', edit_problem_path(@problem)
 
 .problem
   %p#notice= notice
@@ -12,7 +14,6 @@
     = @problem.description_markdown( params[:query])
 
   .left
-    = link_to 'Edit', edit_problem_path(@problem)
     - unless @problem.resolved?
       = link_to 'Resolve', resolve_problem_path(@problem), :confirm => 'Are you sure want to resolve?'
 
