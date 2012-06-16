@@ -1,0 +1,18 @@
+= form_for([@problem, @comment]) do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      %h2
+        = "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
+
+      %ul
+        - @comment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :oppinion, "Your oppinion"
+    %br
+    = f.text_area :oppinion, :cols => 75, :rows => 4
+  = f.hidden_field :problem_id
+  .actions
+    = f.submit
+    = link_to "Cancel", "#", :class => "cancel right"

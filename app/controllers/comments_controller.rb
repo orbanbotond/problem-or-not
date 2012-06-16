@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   load_and_authorize_resource :problem
   load_and_authorize_resource :through => :problem
 
-
   # POST /comments
   # POST /comments.json
   def create

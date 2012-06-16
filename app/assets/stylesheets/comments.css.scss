@@ -6,6 +6,7 @@ ul.comments li{
   list-style-type: none;
   border: solid lightgrey 1px;
   padding-left: 10px;
+  padding-right: 5px;
   margin: 5px;
   padding-bottom: 16px;
 
@@ -19,4 +20,9 @@ ul.comments li{
     color: lightgray;
     margin-right: 25px;
   }
+}
+
+#comment_oppinion{
+  max-width: 547px;
+  max-height: 100px;
 }

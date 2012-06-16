@@ -10,6 +10,22 @@
 #//= require_tree .
 #//= require_self
 
+window.problemOrNot = { 
+  vital_functions: [
+    ->
+      $(".cancel").click ->
+        $('.cancelable_remove').remove()
+        $('.cancelable_show').show()
+
+  ]
+  run_vital_functions: ->
+    $.each problemOrNot.vital_functions, ->
+      @()
+}
+
+jQuery ->
+  problemOrNot.run_vital_functions()
+
 jQuery ->
   selector = "section strong em"
   if $(selector).length > 0

@@ -31,4 +31,5 @@
 
   = will_paginate comments
 
-  = link_to 'Comment the problem', new_problem_comment_path( @problem)
+#comment_operations.cancelable_show
+  = link_to 'Comment the problem', new_problem_comment_path( @problem), :remote => true
