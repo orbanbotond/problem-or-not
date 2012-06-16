@@ -13,6 +13,7 @@ ProblemOrNot::Application.routes.draw do
 
     collection do
       get 'search'
+      post 'preview'
     end
 
     resources :comments, :only => [:new, :edit, :create, :update, :destroy]

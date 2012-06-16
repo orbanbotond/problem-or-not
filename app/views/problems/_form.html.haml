@@ -1,0 +1,58 @@
+= form_for(@problem) do |f|
+  -if @problem.errors.any?
+    %error_explanation
+      %h2
+        = "#{pluralize(@problem.errors.count, "error")} prohibited this problem from being saved:"
+
+      %ul
+      - @problem.errors.full_messages.each do |msg|
+        %li
+          = msg
+
+  .field
+    = f.label :title
+    %br
+    = f.text_field :title
+  .field
+    = f.label :description
+    %br
+    = f.text_area :description, :cols => 80, :'data-preview-url' => preview_problems_url
+  .actions
+    = f.submit
+
+- content_for :sidebar do
+  %h4{:alt => 'Just copy and paste to it', :title => 'Just copy and paste to it'} How to Format
+  %ul.how-to-format
+    %li use returns for paragraphs
+    %li "- - -" for a horizontal line
+    %li _italic_ or **bold**
+    %li 
+      %span Title 1
+      %br
+      %span -------
+    %li 
+      %span - Unordered list item1
+      %br
+      %span - Green
+      %br
+      %span - Blue
+    %li
+      %span 1. Ordered list item1
+      %br
+      %span 2. Second item
+      %br
+      %span 3. Third item
+    %li links: [Link text](http://problem-or-not.herokuapp.com)
+    %li
+      %span > This is a blockquote
+      %br
+      %span > consectetuer adipiscing elit.
+      %br
+      %span > Vestibulum enim wisi.
+      %br
+      %span > Donec sit amet nisl.
+    %li 4 space folowed by preformated code on each line
+
+%preview
+  = @preview if @preview.present?
+ 

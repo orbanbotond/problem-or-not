@@ -16,7 +16,7 @@
 
 #page{
   margin:auto;
-  width: 800px;
+  width: 1000px;
   
   .debugborder{
     border: 1px black solid;
@@ -45,6 +45,16 @@
     width: 90px;
     margin: 45px auto auto auto;
   }
+}
+
+section {
+  width: 630px;
+  float: left;
+}
+
+aside {
+  width: 250px;
+  float: left;
 }
 
 .rounded{
