@@ -2,6 +2,8 @@ class ProblemsController < ApplicationController
   load_and_authorize_resource :except => :preview
   before_filter :authenticate_user!
 
+  layout "small_header"
+
   def preview
     @preview = BlueCloth.new(params[:description]).to_html.html_safe
   end

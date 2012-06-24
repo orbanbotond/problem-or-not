@@ -8,7 +8,7 @@
 %body
   #page
     %header
-      = image_tag 'header.png', :size => '800x200'
+      = content_for :header_image
       .clear
       - if user_signed_in?
         #user_info
@@ -17,7 +17,7 @@
         .clear
 
     %section
-      = yield
+      = content_for :main
 
     %aside
       = content_for :sidebar
