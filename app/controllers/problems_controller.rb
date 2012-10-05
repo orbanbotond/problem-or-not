@@ -2,6 +2,8 @@ class ProblemsController < ApplicationController
   load_and_authorize_resource :except => :preview
   before_filter :authenticate_user!
 
+  layout "small_header"
+
   def preview
     @preview = BlueCloth.new(params[:description]).to_html.html_safe
   end
@@ -30,6 +32,8 @@ class ProblemsController < ApplicationController
   def index
     @existing = @problems.existing
     @resolved = @problems.resolved
+    logger.debug "session a: #{session}"
+    logger.debug "Signed in b: #{user_signed_in?}"
   end
 
   # GET /problems/1

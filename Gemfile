@@ -24,7 +24,7 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'will_paginate'
 
 group :development do
-  #for pushing the db to heroku :(
+  gem 'quiet_assets'
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 

@@ -1,0 +1,7 @@
+- content_for :header_image do
+  = image_tag 'header.png', :size => '800x200'
+  
+- content_for :main do
+  = yield
+
+= render :file => "/layouts/application"
