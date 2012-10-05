@@ -5,7 +5,11 @@ class AddSearchIndexToProblems < ActiveRecord::Migration
   end
 
   def down
-    execute "drop index problem_title"
-    execute "drop index problem_description"
+    begin
+      execute "drop index problem_title"
+      execute "drop index problem_description"
+    rescue
+      Rails.logger.debug "hmm #{$!}"
+    end
   end
 end

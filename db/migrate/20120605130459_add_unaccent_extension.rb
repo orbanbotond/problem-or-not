@@ -4,6 +4,10 @@ class AddUnaccentExtension < ActiveRecord::Migration
   end
 
   def down
-    execute "drop extension unaccent"
+    begin
+      execute "drop extension unaccent"
+    rescue
+      Rails.logger.debug "hmm #{$!}"
+    end
   end
 end
