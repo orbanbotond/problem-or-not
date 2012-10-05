@@ -12,7 +12,7 @@ class CreatePgSearchDocuments < ActiveRecord::Migration
   def self.down
     say_with_time("Dropping table for pg_search multisearch") do
       begin
-        drop_table :pg_search_documents
+        # drop_table :pg_search_documents
       rescue
         Rails.logger.debug "hmm #{$!}"
       end
