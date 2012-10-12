@@ -22,6 +22,7 @@ gem 'cancan'
 gem 'taps'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'will_paginate'
+gem 'timeago', :git => 'git://github.com/orbanbotond/timeago.git'
 
 group :development do
   gem 'quiet_assets'
