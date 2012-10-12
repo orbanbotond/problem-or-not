@@ -15,12 +15,31 @@ class Problem < ActiveRecord::Base
 
   include Highlighter
   
+  class << Problem
+    def sort_by_update
+      puts self
+    end
+    def sort_by_updated(x)
+      puts x
+      x.comments.count > 5
+    end
+  end
+  
   def title_highlighted(search_term)
     highlight( title, search_term)
   end
 
   def description_highlighted(search_term)
     highlight( description, search_term || '')
+  end
+  
+  def latest_comment
+    comments.max_by { |comment| comment.updated_at }
+  end
+  
+  def last_update_time
+    comments_last_update_time = latest_comment.updated_at rescue Time.now - 2000.years
+    comments_last_update_time > updated_at ? comments_last_update_time : updated_at
   end
 
   include PgSearch
@@ -33,6 +52,8 @@ class Problem < ActiveRecord::Base
 
   scope :existing, where( :state => :existing)
   scope :resolved, where( :state => :resolved)
+
+  scope :sort_by_latest_update, order('comments_last_updated_at DESC')
 
   state_machine :state, :initial => :existing do
 

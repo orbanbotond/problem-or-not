@@ -4,6 +4,12 @@ GIT
   specs:
     annotate (2.4.1.beta1)
 
+GIT
+  remote: git://github.com/orbanbotond/timeago.git
+  revision: 67f11bc3df47aab09bfb98af17125473046835b4
+  specs:
+    timeago (0.0.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -209,6 +215,7 @@ DEPENDENCIES
   sqlite3-ruby
   state_machine
   taps
+  timeago!
   turn
   uglifier (>= 1.0.3)
   will_paginate

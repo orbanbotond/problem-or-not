@@ -6,4 +6,4 @@
 - else
   %li.rounded
     = comment.oppinion_markdown params[:query]
-    .timestamp= "Commented at: #{comment.created_at}"
+    .timestamp= "Commented at: #{comment.created_at.relative_time}"

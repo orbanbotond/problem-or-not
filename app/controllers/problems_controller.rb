@@ -30,10 +30,8 @@ class ProblemsController < ApplicationController
   end
 
   def index
-    @existing = @problems.existing
-    @resolved = @problems.resolved
-    logger.debug "session a: #{session}"
-    logger.debug "Signed in b: #{user_signed_in?}"
+    @existing = @problems.existing.sort_by_latest_update
+    @resolved = @problems.resolved.sort_by_latest_update
   end
 
   # GET /problems/1
