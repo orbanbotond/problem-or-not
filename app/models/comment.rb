@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
   include PgSearch
   multisearchable :against => [:oppinion]
 
-  belongs_to :problem, :touch => :comments_last_update_at
+  belongs_to :problem, :touch => :comments_last_updated_at
   attr_accessible :oppinion, :user_id
 
   def oppinion_highlighted(search_term)
