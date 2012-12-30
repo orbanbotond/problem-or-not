@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  respond_to :html, :xml, :json
+  respond_to :html, :xml, :json, :js
 
   load_and_authorize_resource :problem
   load_and_authorize_resource :through => :problem
@@ -7,10 +7,14 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    if @comment.save
-      redirect_to @comment.problem
-    else
-      format.html { render action: "new" }
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @comment.problem }
+        format.js
+        # format.js { render action: "create" }
+      else
+        format.html { render action: "new" }
+      end
     end
   end
 

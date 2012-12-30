@@ -1,0 +1,5 @@
+$('#new_comment').parent().remove()
+$('.comments').prepend("<%=j render @comment %>")
+$('#comment_operations').show()
+problemOrNot.run_vital_functions()
+$('.comments li:first').effect( "highlight", 'easeOutBounce', 4000)

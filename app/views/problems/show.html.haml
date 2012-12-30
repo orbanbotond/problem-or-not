@@ -25,11 +25,12 @@
   .clear
 
   %h3 Listing comments:
+
+  #comment_operations
+    = link_to 'Comment the problem', new_problem_comment_path( @problem), :remote => true
+
   - comments = @problem.comments.paginate(:page => params[:page])
   %ul.comments
     = render comments
 
   = will_paginate comments
-
-#comment_operations.cancelable_show
-  = link_to 'Comment the problem', new_problem_comment_path( @problem), :remote => true
