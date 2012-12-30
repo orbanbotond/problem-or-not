@@ -1,0 +1,5 @@
+.problems
+  %ul
+    - @existing.each do |problem|
+      %li
+        = link_to problem.title, problem
