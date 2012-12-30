@@ -1,5 +1,5 @@
-.problems
-  %ul
-    - @existing.each do |problem|
-      %li
-        = link_to problem.title, problem
+%div{'data-role'=>"collapsible-set",'data-theme'=>"c", 'data-collapsed-icon'=>"arrow-r", 'data-expanded-icon'=>"arrow-d"}
+  - @existing.each do |problem|
+    %div{ 'data-role'=>'collapsible', 'data-collapsed'=>false}
+      %h3= problem.title
+      %p= problem.description
