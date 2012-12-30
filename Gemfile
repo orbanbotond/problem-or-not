@@ -29,11 +29,12 @@ group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
+gem 'coffee-rails'
 # Gems used only for assets and not required
 # in production environments by default.
+
 group :assets do
   gem 'sass-rails'
-  gem 'coffee-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
