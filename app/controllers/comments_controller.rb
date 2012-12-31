@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   respond_to :html, :xml, :json, :js
+  respond_to :mobile, :only => :index
 
   load_and_authorize_resource :problem
   load_and_authorize_resource :through => :problem
@@ -16,6 +17,10 @@ class CommentsController < ApplicationController
         format.html { render action: "new" }
       end
     end
+  end
+
+  def index
+    render :layout => false
   end
 
   # PUT /comments/1

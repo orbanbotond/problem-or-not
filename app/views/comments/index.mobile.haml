@@ -1,0 +1,12 @@
+%div{'data-role' => 'page', 'id' => 'comments', 'data-add-back-btn'=>"true"}
+  %div{'data-role' => 'header'}
+    %h1= @comments.first.problem.title
+    =link_to 'Express new oppinion', new_problem_comment_path(@comments.first.problem), :class => "ui-btn-right"
+  %div{'data-role' => 'content'}
+    %div{'data-role'=>"collapsible-set"}
+      - @comments.each do |comment|
+        %div{'data-role'=>'collapsible', 'data-collapsed'=>'false'}
+          %h3= "Commented at: #{comment.created_at.relative_time}"
+          %p= comment.oppinion
+  %div{'data-role' => "footer"}
+    %h6 or just a fragment of the past

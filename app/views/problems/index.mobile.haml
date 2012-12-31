@@ -1,5 +1,6 @@
-%div{'data-role'=>"collapsible-set",'data-theme'=>"c", 'data-collapsed-icon'=>"arrow-r", 'data-expanded-icon'=>"arrow-d"}
+%ul{'data-role'=>"listview"}
   - @existing.each do |problem|
-    %div{ 'data-role'=>'collapsible', 'data-collapsed'=>false}
-      %h3= problem.title
-      %p= problem.description
+    %li.ui-li-has-count
+      =link_to problem do
+        =problem.title
+        %span.ui-li-count= problem.comments.count 

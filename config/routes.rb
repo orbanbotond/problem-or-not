@@ -16,7 +16,7 @@ ProblemOrNot::Application.routes.draw do
       post 'preview'
     end
 
-    resources :comments, :only => [:new, :edit, :create, :update, :destroy]
+    resources :comments
   end
 
   get 'problems/:id/version/:version' => 'problems#version', :as => 'problem_version'
