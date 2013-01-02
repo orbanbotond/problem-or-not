@@ -1,0 +1,10 @@
+%div{'data-role' => 'page', 'id' => 'comments', 'data-add-back-btn'=>"true"}
+  %div{'data-role' => 'header'}
+    %h1 New oppinion
+  %div{'data-role' => 'content'}
+    = form_for [@comment.problem, @comment] do |f|
+      = f.label :oppinion, 'Your oppinion'
+      = f.text_area :oppinion, :rows => 3
+      = f.submit
+  %div{'data-role' => "footer"}
+    %h6 or just a fragment of the past

@@ -1,6 +1,12 @@
-%ul{'data-role'=>"listview"}
-  - @existing.each do |problem|
-    %li.ui-li-has-count
-      =link_to problem do
-        =problem.title
-        %span.ui-li-count= problem.comments.count 
+%div{'data-role' => 'page', 'id' => 'problems'}
+  %div{'data-role' => 'header'}
+    %h1 Problem or not
+  %div{'data-role' => 'content'}
+    %ul{'data-role'=>"listview"}
+      - @existing.each do |problem|
+        %li.ui-li-has-count
+          =link_to problem do
+            =problem.title
+            %span.ui-li-count= problem.comments.count 
+  %div{'data-role' => "footer"}
+    %h6 or just a fragment of the past
