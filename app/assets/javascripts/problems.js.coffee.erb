@@ -7,7 +7,7 @@ post_id = null
 text = null
         
 jQuery ->
-  $('.edit_problem textarea, .new_problem textarea,').keyup ->
+  $('.edit_problem textarea, .new_problem textarea').keyup ->
     $this = $(@)
     if text != $this.val()
       text = $this.val()
