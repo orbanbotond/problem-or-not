@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -56,5 +56,6 @@ gem 'pry'
 
 group :test do
   # Pretty printed test output
+  gem 'minitest'
   gem 'turn', :require => false
 end
