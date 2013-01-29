@@ -12,7 +12,7 @@
 #
 
 class Problem < ActiveRecord::Base
-
+  extend FriendlyId
   include PgSearch
   multisearchable :against => [:title, :description]
 
@@ -20,6 +20,8 @@ class Problem < ActiveRecord::Base
   has_many :comments, :order => 'updated_at DESC'
 
   has_paper_trail
+
+  friendly_id :title, use: :slugged
 
   scope :existing, where( :state => :existing)
   scope :resolved, where( :state => :resolved)
