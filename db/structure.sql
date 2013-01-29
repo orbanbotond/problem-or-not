@@ -152,7 +152,8 @@ CREATE TABLE problems (
     updated_at timestamp without time zone,
     user_id integer,
     state character varying(255) DEFAULT 'existing'::character varying,
-    comments_last_updated_at timestamp without time zone
+    comments_last_updated_at timestamp without time zone,
+    slug character varying(255)
 );
 
 
@@ -417,3 +418,5 @@ INSERT INTO schema_migrations (version) VALUES ('20120605130459');
 INSERT INTO schema_migrations (version) VALUES ('20120605155135');
 
 INSERT INTO schema_migrations (version) VALUES ('20121012103509');
+
+INSERT INTO schema_migrations (version) VALUES ('20130129090834');
