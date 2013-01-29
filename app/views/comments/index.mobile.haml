@@ -7,7 +7,7 @@
     %div{'data-role'=>"collapsible-set"}
       - @comments.each do |comment|
         %div{'data-role'=>'collapsible', 'data-collapsed'=>'false'}
-          %h3= "Commented at: #{comment.created_at.relative_time}"
+          %h3= "#{comment.created_at.relative_time}: #{comment.oppinion.first(20)}"
           %p= comment.oppinion
   %div{'data-role' => "footer"}
     %h6 or just a fragment of the past
