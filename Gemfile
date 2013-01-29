@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -23,6 +23,8 @@ gem 'taps'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'will_paginate'
 gem 'timeago', :git => 'git://github.com/orbanbotond/timeago.git'
+gem "jquery_mobile-rails"
+gem "friendly_id", "~> 4.0.9"
 
 group :development do
   gem 'quiet_assets'
@@ -50,9 +52,10 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'pry'
 
 group :test do
   # Pretty printed test output
+  gem 'minitest'
   gem 'turn', :require => false
 end

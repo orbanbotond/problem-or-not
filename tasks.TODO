@@ -1,11 +1,19 @@
 Tasks for today:
+ ☐ use the normal version on ipad
+ ☐ comment count on the comment button
+ ☐ Leave space at the most bottom problem. padding
+ ☐ Do the update problem (on the iphone)
+ ☐ Back to problem/problems when the page is reloaded.
  ☐ markdown in the comments too
- ☐ Start the ipad version (jquery mobile + backbone:))
  ☐ Test the browser version as vell.
  ☐ add the html5 boilerplate
  ☐ Rethink that back in time funcionality :) (It need to include the comments too)
  ☐ check the full text search functionality :)
  ☐ experience the minitest, fix tests...
+ ☐ Kicsit balra a logout... margoval
+ ☐ Az also problemalistahoz is margot
+ ☐ ipad-n a kommentek szamat megmutatni valahogy.
+ ☐ Ha a kommentre klikkelek akkor a kommenthez anchorolodjon
 
 Tasks for tomorrow:
  ☐ Play with snippets
@@ -14,6 +22,8 @@ Tasks for tomorrow:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Do the insert comment @done (13-01-02 22:00)
+ ✔ Start the iphone version (jquery mobile + backbone:)) @done (13-01-02 21:23)
  ✔ learn as much of sublime as I can. @done (12-11-10 18:17)
  ✔ Enjoy the view with the Eke @done (12-12-30 16:08)
  ✔ watch Startreak @done (12-12-30 16:08)

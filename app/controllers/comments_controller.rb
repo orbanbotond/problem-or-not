@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
-  respond_to :html, :xml, :json, :js
+  respond_to :html, :xml, :json, :js, :mobile
+
+  layout 'small_header'
 
   load_and_authorize_resource :problem
   load_and_authorize_resource :through => :problem
@@ -10,12 +12,16 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment.problem }
+        format.mobile { redirect_to problem_comments_path(@problem)}
         format.js
-        # format.js { render action: "create" }
       else
         format.html { render action: "new" }
       end
     end
+  end
+
+  def index
+    render :layout => !request.xhr?
   end
 
   # PUT /comments/1

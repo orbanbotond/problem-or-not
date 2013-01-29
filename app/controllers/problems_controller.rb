@@ -12,6 +12,9 @@ class ProblemsController < ApplicationController
     PgSearch.multisearch_options = {:using => { :tsearch => { :dictionary => "hungarian" } }, :ignoring => :accents}
     @result = PgSearch.multisearch(params[:query]).map{ |x| x.searchable }
     @result = @result.reject{|x| @result.include? x.problem rescue false}
+    respond_to do |format|
+      format.mobile { render :layout => !request.xhr? }
+    end
   end
 
   def version
@@ -40,6 +43,7 @@ class ProblemsController < ApplicationController
     request.headers
     respond_to do |format|
       format.html
+      format.mobile{render :layout => !request.xhr?}
       format.js
     end
   end

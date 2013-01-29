@@ -1,0 +1,12 @@
+%div{'data-role' => 'page', 'id' => 'problem'}
+  %div{'data-role' => 'header'}
+    =link_to 'Back', problems_path, {:'data-icon'=>"arrow-l"}
+    %h1= @problem.title
+  %div{'data-role' => 'content'}
+    %p= @problem.description_markdown
+
+    =link_to 'Comments', problem_comments_path(@problem), :'data-role' => 'button'
+
+
+  %div{'data-role' => "footer"}
+    %h6 or just a fragment of the past
