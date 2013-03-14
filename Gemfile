@@ -1,14 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.11'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'rails', '4.0.0.beta1'
+gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
 
 gem 'pg'
 gem 'pg_search'
 
-gem 'devise'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :branch => "rails4"
+
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
@@ -16,7 +15,7 @@ gem 'omniauth-google-oauth2'
 gem 'heroku'
 gem 'haml'
 gem 'bluecloth'
-gem 'paper_trail', '~> 2'
+# gem 'paper_trail', '~> 2'
 gem 'state_machine'
 gem 'cancan'
 gem 'taps'
@@ -28,15 +27,15 @@ gem "friendly_id", "~> 4.0.9"
 
 group :development do
   gem 'quiet_assets'
-  gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'sqlite3'
 end
 
-gem 'coffee-rails'
+# gem 'coffee-rails'
 # Gems used only for assets and not required
 # in production environments by default.
 
 group :assets do
-  gem 'sass-rails'
+  # gem 'sass-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
