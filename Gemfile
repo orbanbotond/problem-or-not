@@ -13,9 +13,10 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'heroku'
-gem 'haml'
+# gem 'haml', :git => 'git://github.com/haml/haml.git', :tag => '4.0.1.rc.1'
+gem 'haml', '4.0.1.rc.1'
 gem 'bluecloth'
-# gem 'paper_trail', '~> 2'
+gem 'paper_trail', :git => 'git://github.com/airblade/paper_trail.git', :branch => 'rails4'
 gem 'state_machine'
 gem 'cancan'
 gem 'taps'
@@ -30,12 +31,12 @@ group :development do
   gem 'sqlite3'
 end
 
-# gem 'coffee-rails'
+gem 'coffee-rails', '4.0.0.beta1'
 # Gems used only for assets and not required
 # in production environments by default.
 
 group :assets do
-  # gem 'sass-rails'
+  gem 'sass-rails', '4.0.0.beta1'
   gem 'uglifier', '>= 1.0.3'
 end
 
