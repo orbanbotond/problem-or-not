@@ -24,7 +24,6 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'will_paginate'
 gem 'timeago', :git => 'git://github.com/orbanbotond/timeago.git'
 gem "jquery_mobile-rails"
-gem "friendly_id", "~> 4.0.9"
 
 group :development do
   gem 'quiet_assets'
