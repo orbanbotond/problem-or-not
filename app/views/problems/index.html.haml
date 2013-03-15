@@ -11,7 +11,7 @@
       %th.hidden.visible-on-hover-everywhere.small Action
 
     - @existing.each do |problem|
-      %tr.hover-table{:'data-hover' => 'visible-on-hover'}
+      %tr.mouse-stay.hover-table{:'data-hover' => 'visible-on-hover'}
         %td.small-padding= link_to problem.title.first(45), problem
         %td.small-padding= image_tag 'chat.png', :title => "This problem has #{problem.comments.count} comments" unless problem.comments.empty?
         %td.unobtrusive.small-padding

@@ -32,3 +32,14 @@ jQuery ->
     setInterval ->
       $(selector).effect "highlight", { times:20, color: 'lightgreen' }, 1000
     , 2000
+
+$ ->
+  counter = null
+  $(".mouse-stay").hover ->
+    counter = setTimeout ->
+      i = null
+      # console.debug('stayed... :)')
+    , 800
+  , ->
+    # console.debug('stopped...out :(')
+    clearTimeout(counter);
