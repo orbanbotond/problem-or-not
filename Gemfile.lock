@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/Casecommons/pg_search.git
+  revision: b1f2b0a2c5757daad354d90664523632ab82bf31
+  specs:
+    pg_search (0.5.7)
+      activerecord (>= 3)
+      activesupport (>= 3)
+
+GIT
   remote: git://github.com/airblade/paper_trail.git
   revision: b2f148b95539e692352b2bc76de0c0b99f41fde9
   branch: rails4
@@ -89,7 +97,6 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.6)
       multipart-post (~> 1.1)
-    friendly_id (4.1.0.beta.1)
     haml (4.0.1.rc.1)
       tilt
     hashie (1.2.0)
@@ -149,9 +156,6 @@ GEM
       omniauth-oauth (~> 1.0)
     orm_adapter (0.4.0)
     pg (0.14.1)
-    pg_search (0.5.7)
-      activerecord (>= 3)
-      activesupport (>= 3)
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -235,7 +239,6 @@ DEPENDENCIES
   cancan
   coffee-rails (= 4.0.0.beta1)
   devise!
-  friendly_id (= 4.1.0.beta.1)
   haml (= 4.0.1.rc.1)
   heroku
   jquery-rails
@@ -247,7 +250,7 @@ DEPENDENCIES
   omniauth-twitter
   paper_trail!
   pg
-  pg_search
+  pg_search!
   pry
   quiet_assets
   rails (= 4.0.0.beta1)

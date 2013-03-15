@@ -4,7 +4,7 @@ gem 'rails', '4.0.0.beta1'
 gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
 
 gem 'pg'
-gem 'pg_search'
+gem 'pg_search', :git => 'git://github.com/Casecommons/pg_search.git'
 
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :branch => "rails4"
 
@@ -13,7 +13,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'heroku'
-# gem 'haml', :git => 'git://github.com/haml/haml.git', :tag => '4.0.1.rc.1'
 gem 'haml', '4.0.1.rc.1'
 gem 'bluecloth'
 gem 'paper_trail', :git => 'git://github.com/airblade/paper_trail.git', :branch => 'rails4'

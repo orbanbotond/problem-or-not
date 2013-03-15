@@ -3,12 +3,15 @@ class CommentsController < ApplicationController
 
   layout 'small_header'
 
+  before_filter :authorize_for_create, :only => :create
   load_and_authorize_resource :problem
   load_and_authorize_resource :through => :problem
 
   # POST /comments
   # POST /comments.json
   def create
+    @problem = Problem.find params[:problem_id]
+    @comment = @problem.comments.build params.require(:comment).permit(:oppinion, :problem_id)
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment.problem }
@@ -48,4 +51,16 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # attr_accessible :oppinion, :user_id
+private
+
+  def comment_params
+    params.require(:comment).permit(:oppinion, :problem_id)
+  end
+
+  def authorize_for_create
+    params[:comment] = comment_params
+  end
+
 end

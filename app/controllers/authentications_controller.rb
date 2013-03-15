@@ -4,6 +4,7 @@ class AuthenticationsController < ApplicationController
   end
 
   def create
+    binding.pry
     omniauth = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
     if authentication
