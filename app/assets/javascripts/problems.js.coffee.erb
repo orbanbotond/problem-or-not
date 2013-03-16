@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-#TODO this need to be optimized
 post_id = null
 text = null
         
@@ -23,14 +22,14 @@ jQuery ->
     $this = $(@)
     locator = $this.data 'hover'
 
-    $('.visible-on-hover', $this ).show 'fast'
-    $('.visible-on-hover-everywhere' ).show 'fast'
+    $('.visible-on-hover', $this ).show()
+    $('.visible-on-hover-everywhere' ).show()
   $('.hover').mouseleave ->
     $this = $(@);
     locator = $this.data 'hover'
 
-    $('.visible-on-hover', $this ).hide 'fast'
-    $('.visible-on-hover-everywhere' ).hide 'fast'
+    $('.visible-on-hover', $this ).hide()
+    $('.visible-on-hover-everywhere' ).hide()
 
 jQuery ->
   $('.hover-table').mouseenter ->
@@ -39,15 +38,15 @@ jQuery ->
     $table = $this.parents 'table'
 
     if !$('.hover', $this ).length
-      $('.' + locator + '.hover', $table ).hide('fast').removeClass 'hover'
-    $('.' + locator, $this ).show('fast').addClass 'hover'
-    $('.' + locator + '-everywhere:not(.hover)').show('fast').addClass 'hover'
+      $('.' + locator + '.hover', $table ).hide().removeClass 'hover'
+    $('.' + locator, $this ).show().addClass 'hover'
+    $('.' + locator + '-everywhere:not(.hover)').show().addClass 'hover'
   $('.hover-table').parents('table').mouseleave ->
     $this = $(@);
     locator = $('.hover-table').data 'hover'
 
-    $('.' + locator, $this ).hide('fast').removeClass 'hover'
-    $('.' + locator + '-everywhere' ).hide('fast').removeClass 'hover'
+    $('.' + locator, $this ).hide().removeClass 'hover'
+    $('.' + locator + '-everywhere' ).hide().removeClass 'hover'
 
 jQuery ->
   if $('.pagination').length

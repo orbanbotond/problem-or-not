@@ -15,7 +15,7 @@
 
   .left
     - unless @problem.resolved?
-      = link_to 'Resolve', resolve_problem_path(@problem), :confirm => 'Are you sure want to resolve?'
+      = link_to 'Resolve', resolve_problem_path(@problem), data: { :confirm => 'Are you sure want to resolve?'}
 
   .right
     - if @problem.previous_version

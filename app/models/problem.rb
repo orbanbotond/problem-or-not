@@ -12,21 +12,18 @@
 #
 
 class Problem < ActiveRecord::Base
-  extend FriendlyId
   include PgSearch
   multisearchable :against => [:title, :description]
 
   belongs_to :user
-  has_many :comments, :order => 'updated_at DESC'
+  has_many :comments, -> { order(updated_at: :desc) }
 
   has_paper_trail
 
-  friendly_id :title, use: :slugged
+  scope :existing, -> { where( :state => :existing)}
+  scope :resolved, -> { where( :state => :resolved)}
 
-  scope :existing, where( :state => :existing)
-  scope :resolved, where( :state => :resolved)
-
-  scope :sort_by_latest_update, order('updated_at DESC')
+  scope :sort_by_latest_update, -> {order(updated_at: :desc)}
 
   include Highlighter
   

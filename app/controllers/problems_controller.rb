@@ -1,4 +1,5 @@
 class ProblemsController < ApplicationController
+  before_filter :authorize_for_create_and_update, :only => [:create, :update]
   load_and_authorize_resource :except => :preview
   before_filter :authenticate_user!
 
@@ -125,4 +126,15 @@ class ProblemsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+private
+
+  def problem_params
+    params.require(:problem).permit(:description, :title)
+  end
+
+  def authorize_for_create_and_update
+    params[:problem] = problem_params
+  end
+
 end

@@ -1,22 +1,21 @@
 source 'http://rubygems.org'
+ruby "2.0.0"
 
-gem 'rails', '3.2.11'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+gem 'rails', '4.0.0.beta1'
 
 gem 'pg'
-gem 'pg_search'
+gem 'pg_search', :git => 'git://github.com/Casecommons/pg_search.git'
 
-gem 'devise'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :branch => "rails4"
+
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'heroku'
-gem 'haml'
+gem 'haml', '4.0.1.rc.1'
 gem 'bluecloth'
-gem 'paper_trail', '~> 2'
+gem 'paper_trail', :git => 'git://github.com/airblade/paper_trail.git', :branch => 'rails4'
 gem 'state_machine'
 gem 'cancan'
 gem 'taps'
@@ -24,19 +23,18 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'will_paginate'
 gem 'timeago', :git => 'git://github.com/orbanbotond/timeago.git'
 gem "jquery_mobile-rails"
-gem "friendly_id", "~> 4.0.9"
 
 group :development do
   gem 'quiet_assets'
-  gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'sqlite3'
 end
 
-gem 'coffee-rails'
+gem 'coffee-rails', '4.0.0.beta1'
 # Gems used only for assets and not required
 # in production environments by default.
 
 group :assets do
-  gem 'sass-rails'
+  gem 'sass-rails', '4.0.0.beta1'
   gem 'uglifier', '>= 1.0.3'
 end
 
