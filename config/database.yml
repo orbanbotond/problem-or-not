@@ -49,7 +49,9 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: problem_or_not_production
+  database: problem_or_not_development
   pool: 5
-  username: problem_or_not
+  username: boti
   password:
+  host: localhost
+  port: 5432
