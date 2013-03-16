@@ -8,5 +8,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     $facebook_app_info = ['420103404676944', '6e33d25bfa4bc0d92be61ec54c3d7ed8'] 
   end
 
+  provider :facebook, *$facebook_app_info, scope: "email, publish_stream"
   provider :google_oauth2, '59177245373.apps.googleusercontent.com', 'aAUBvEgFGVVUpMNDpSPV2BhG'
 end

@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '4.0.0.beta1'
-gem 'rails4_upgrade', github: 'alindeman/rails4_upgrade'
 
 gem 'pg'
 gem 'pg_search', :git => 'git://github.com/Casecommons/pg_search.git'
