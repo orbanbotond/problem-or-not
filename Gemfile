@@ -19,7 +19,6 @@ gem 'paper_trail', :git => 'git://github.com/airblade/paper_trail.git', :branch 
 gem 'state_machine'
 gem 'cancan'
 gem 'taps'
-gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 gem 'will_paginate'
 gem 'timeago', :git => 'git://github.com/orbanbotond/timeago.git'
 gem "jquery_mobile-rails"
@@ -51,6 +50,28 @@ gem 'jquery-rails'
 
 # To use debugger
 gem 'pry'
+
+gem 'pry'
+
+group :development do
+  gem 'pry-nav'
+  gem 'rb-readline'
+end
+
+group :development, :test do
+  gem 'faker'
+  gem 'rack-livereload'
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-livereload'
+
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+  gem 'guard-annotate'
+  gem "rb-fsevent"
+  gem 'database_cleaner'
+
+  # gem 'sqlite3', :require => 'sqlite3'
+end
 
 group :test do
   # Pretty printed test output

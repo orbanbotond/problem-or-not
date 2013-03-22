@@ -4,6 +4,8 @@
     %title Problem Or Not
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
+    - if Rails.env == 'development'
+      %script{:src => asset_path('livereload.js?snipver=1') }
     = csrf_meta_tags
 %body
   #page
