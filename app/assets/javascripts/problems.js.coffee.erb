@@ -4,7 +4,19 @@
 
 post_id = null
 text = null
-        
+
+jQuery ->
+  $('.draggable').draggable()
+  $( ".sortable" ).sortable();
+  $( ".sortable" ).disableSelection();
+
+jQuery -> 
+
+  $('.droppable').droparea
+        instructions: "heayyyyy"
+        start: ->
+          alert('Let\'s rock!')
+
 jQuery ->
   $('.edit_problem textarea, .new_problem textarea').keyup ->
     $this = $(@)

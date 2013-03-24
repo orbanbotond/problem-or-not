@@ -33,6 +33,11 @@ class ProblemsController < ApplicationController
     redirect_to problems_path
   end
 
+  def as_list
+    @existing = @problems.existing.sort_by_latest_update
+    @resolved = @problems.resolved.sort_by_latest_update
+  end
+
   def index
     @existing = @problems.existing.sort_by_latest_update
     @resolved = @problems.resolved.sort_by_latest_update

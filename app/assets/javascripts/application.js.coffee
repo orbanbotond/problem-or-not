@@ -7,6 +7,7 @@
 #//= require jquery
 #//= require jquery_ujs
 #//= require jquery-ui
+#//= require droparea.js
 #//= require_tree .
 #//= require_self
 

@@ -25,6 +25,7 @@ gem "jquery_mobile-rails"
 
 group :development do
   gem 'quiet_assets'
+  gem 'localtunnel'
   gem 'sqlite3'
 end
 

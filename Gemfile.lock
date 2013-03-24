@@ -137,6 +137,10 @@ GEM
     launchy (2.2.0)
       addressable (~> 2.3)
     listen (0.7.3)
+    localtunnel (0.3)
+      json (>= 1.2.4)
+      net-ssh (>= 2.0.22)
+      net-ssh-gateway (>= 1.0.1)
     lumberjack (1.0.3)
     mail (2.5.3)
       i18n (>= 0.4.0)
@@ -147,6 +151,9 @@ GEM
     minitest (4.6.2)
     multi_json (1.6.1)
     multipart-post (1.2.0)
+    net-ssh (2.6.6)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     netrc (0.7.7)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -273,6 +280,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   jquery_mobile-rails
+  localtunnel
   minitest
   omniauth
   omniauth-facebook

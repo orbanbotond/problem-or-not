@@ -19,6 +19,8 @@ ProblemOrNot::Application.routes.draw do
     resources :comments
   end
 
+  get 'problems_as_list' => 'problems#as_list'
+
   get 'problems/:id/version/:version' => 'problems#version', :as => 'problem_version'
 
   # The priority is based upon order of creation:
