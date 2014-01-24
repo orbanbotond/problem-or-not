@@ -11,7 +11,8 @@
 
   %p.droppable
     %b Description:
-    = @problem.description_markdown( params[:query])
+    - @problem.text_components.each do |text_component|
+      = text_component.description_markdown( params[:query])
 
   .left
     - unless @problem.resolved?

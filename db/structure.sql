@@ -3,6 +3,7 @@
 --
 
 SET statement_timeout = 0;
+SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -83,8 +84,8 @@ CREATE TABLE comments (
     id integer NOT NULL,
     oppinion text,
     problem_id integer,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -116,8 +117,8 @@ CREATE TABLE pg_search_documents (
     content text,
     searchable_id integer,
     searchable_type character varying(255),
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -183,6 +184,38 @@ ALTER SEQUENCE problems_id_seq OWNED BY problems.id;
 CREATE TABLE schema_migrations (
     version character varying(255) NOT NULL
 );
+
+
+--
+-- Name: text_components; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE text_components (
+    id integer NOT NULL,
+    description text,
+    problem_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: text_components_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE text_components_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: text_components_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE text_components_id_seq OWNED BY text_components.id;
 
 
 --
@@ -291,6 +324,13 @@ ALTER TABLE ONLY problems ALTER COLUMN id SET DEFAULT nextval('problems_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY text_components ALTER COLUMN id SET DEFAULT nextval('text_components_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -334,6 +374,14 @@ ALTER TABLE ONLY problems
 
 
 --
+-- Name: text_components_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY text_components
+    ADD CONSTRAINT text_components_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -347,6 +395,13 @@ ALTER TABLE ONLY users
 
 ALTER TABLE ONLY versions
     ADD CONSTRAINT versions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_text_components_on_problem_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_text_components_on_problem_id ON text_components USING btree (problem_id);
 
 
 --
@@ -395,6 +450,8 @@ CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (v
 -- PostgreSQL database dump complete
 --
 
+SET search_path TO "$user",public;
+
 INSERT INTO schema_migrations (version) VALUES ('20120526195133');
 
 INSERT INTO schema_migrations (version) VALUES ('20120528131100');
@@ -420,3 +477,7 @@ INSERT INTO schema_migrations (version) VALUES ('20120605155135');
 INSERT INTO schema_migrations (version) VALUES ('20121012103509');
 
 INSERT INTO schema_migrations (version) VALUES ('20130129090834');
+
+INSERT INTO schema_migrations (version) VALUES ('20130402120052');
+
+INSERT INTO schema_migrations (version) VALUES ('20130402120156');

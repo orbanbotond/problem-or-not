@@ -1,5 +1,7 @@
 ProblemOrNot::Application.routes.draw do
 
+  resources :link_components
+
   devise_for :users
 
   match "/auth/:provider/callback" => 'authentications#create', :via => :get

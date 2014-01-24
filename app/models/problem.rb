@@ -17,6 +17,8 @@ class Problem < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments, -> { order(updated_at: :desc) }
+  has_many :text_components
+  # has_many :links
 
   has_paper_trail
 
@@ -31,9 +33,6 @@ class Problem < ActiveRecord::Base
     highlight( title, search_term)
   end
 
-  def description_highlighted(search_term)
-    highlight( description, search_term || '')
-  end
   
   def latest_comment
     comments.max_by { |comment| comment.updated_at }
@@ -51,7 +50,4 @@ class Problem < ActiveRecord::Base
 
   end
 
-  def description_markdown(search_term = '')
-    BlueCloth.new(description_highlighted(search_term)).to_html.html_safe
-  end
 end

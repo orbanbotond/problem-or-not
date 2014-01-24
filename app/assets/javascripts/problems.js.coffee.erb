@@ -10,12 +10,13 @@ jQuery ->
   $( ".sortable" ).sortable();
   $( ".sortable" ).disableSelection();
 
-jQuery -> 
-
+jQuery ->
   $('.droppable').droparea
-        instructions: "heayyyyy"
-        start: ->
-          alert('Let\'s rock!')
+    instructions: "&nbsp;"
+    over        : 'drop link here!',
+    start: (e)->
+      problem_id = window.location.pathname.split('/')[2]
+      $.post('<%= Rails.application.routes.url_helpers.link_components_path %>', {problem_id: problem_id, link_component:{link: e.getData('Text')}})
 
 jQuery ->
   $('.edit_problem textarea, .new_problem textarea').keyup ->

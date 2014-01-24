@@ -290,11 +290,11 @@
             // Drop file event
             this.addEventListener("drop", function (e) {
                 e.preventDefault();
-                s.start($(this));
-                console.debug(e);
-                console.debug(e.dataTransfer);
-                console.debug(e.dataTransfer.getData('URL'));
-                console.debug(e.dataTransfer.getData('Text'));
+                s.start(e.dataTransfer);
+                // console.debug(e);
+                // console.debug(e.dataTransfer);
+                // console.debug(e.dataTransfer.getData('URL'));
+                // console.debug(e.dataTransfer.getData('Text'));
 
                 m.traverse(e.dataTransfer.files, input, area);
                 instructions.removeClass('over').empty();

@@ -45,6 +45,8 @@ test:
   pool: 5
   username: boti
   password:
+  host: localhost
+  port: 5432
 
 production:
   adapter: postgresql
