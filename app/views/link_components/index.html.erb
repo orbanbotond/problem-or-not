@@ -1,0 +1,27 @@
+<h1>Listing link_components</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Link</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @link_components.each do |link_component| %>
+    <tr>
+      <td><%= link_component.link %></td>
+      <td><%= link_to 'Show', link_component %></td>
+      <td><%= link_to 'Edit', edit_link_component_path(link_component) %></td>
+      <td><%= link_to 'Destroy', link_component, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Link component', new_link_component_path %>
