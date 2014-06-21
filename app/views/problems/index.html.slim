@@ -1,0 +1,40 @@
+.problems
+  = render :partial => 'quick_search'
+
+  h1 Listing problems
+
+  table
+    tr
+      th.wide Title
+      th.small
+      th.hidden.visible-on-hover-everywhere Timestamp
+      th.hidden.visible-on-hover-everywhere.small Action
+
+    - @existing.each do |problem|
+      tr.mouse-stay.hover-table data-hover='visible-on-hover'
+        td.small-padding= link_to problem.title.first(25), problem
+        td.small-padding= image_tag 'chat.png', :title => "This problem has #{problem.comments.count} comments" unless problem.comments.empty?
+        td.hidden.visible-on-hover.unobtrusive.small-padding
+          = distance_of_time_in_words_to_now(problem.updated_at) rescue ''
+        td.hidden.visible-on-hover.small-padding
+          = link_to problem, :method => :delete, data: {:confirm => 'Are you sure want to delete?'}, :class => 'simple-link', :title => 'delete permanently' do
+            = image_tag 'trash.png', :size => "11x14"
+          = link_to resolve_problem_path(problem), data: { :confirm => 'Are you sure want to resolve?'}, :class => 'simple-link', :title => 'resolve problem' do
+            = image_tag 'resolve.png'
+  br
+
+  = link_to 'New Problem', new_problem_path
+
+  - unless @resolved.empty?
+    h2.past Fragments of the Past
+
+    table
+      tr
+        th Title
+        th
+        th.hidden Action
+
+      - @resolved.each do |problem|
+        tr
+          td.small-padding= link_to problem.title, problem
+          td.small-padding= image_tag 'chat.png', :title => "This problem has #{problem.comments.count} comments" unless problem.comments.empty?

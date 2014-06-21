@@ -3,14 +3,16 @@
   = link_to 'Edit', edit_problem_path(@problem)
 
 .problem
-  %p#notice= notice
+  p#notice= notice
 
-  %p
-    %b Title:
+  p
+    b Title:
     = @problem.title
 
-  %p.droppable
-    %b Description:
+  p.droppable
+    b Description:
+    = @problem.description_markdown
+
     - @problem.text_components.each do |text_component|
       = text_component.description_markdown( params[:query])
 
@@ -25,13 +27,13 @@
       = link_to 'Forward in Time', @problem.next_version ? problem_version_path(@problem, @problem.next_version.version.id) : @problem
   .clear
 
-  %h3 Listing comments:
+  h3 Listing comments:
 
   #comment_operations
     = link_to 'Comment the problem', new_problem_comment_path( @problem), :remote => true
 
   - comments = @problem.comments.paginate(:page => params[:page])
-  %ul.comments
+  ul.comments
     = render comments
 
   = will_paginate comments

@@ -1,25 +1,25 @@
-!!! 5
-%html
-  %head
-    %title Problem Or Not
+doctype html
+html
+  head
+    title Problem Or Not
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     - if Rails.env == 'development'
-      %script{:src => asset_path('livereload.js?snipver=1') }
+      script src=asset_path('livereload.js?snipver=1')
     = csrf_meta_tags
-%body
+body
   #page
-    %header
+    header
       = content_for :header_image
       .clear
       - if user_signed_in?
         #user_info
-          %p= "Welcome: #{current_user.email}"
+          p= "Welcome: #{current_user.email}"
           = link_to 'Logout', destroy_user_session_path, :method => :delete
         .clear
 
-    %section
+    section
       = content_for :main
 
-    %aside
+    aside
       = content_for :sidebar

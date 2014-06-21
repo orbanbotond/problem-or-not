@@ -24,19 +24,9 @@ class Problem < ActiveRecord::Base
 
   scope :existing, -> { where( :state => :existing)}
   scope :resolved, -> { where( :state => :resolved)}
-
   scope :sort_by_latest_update, -> {order(updated_at: :desc)}
 
   include Highlighter
-  
-  def title_highlighted(search_term)
-    highlight( title, search_term)
-  end
-
-  
-  def latest_comment
-    comments.max_by { |comment| comment.updated_at }
-  end
 
   state_machine :state, :initial => :existing do
 
@@ -48,6 +38,18 @@ class Problem < ActiveRecord::Base
       transition [:resolved] => :existing
     end
 
+  end
+
+  def description_markdown
+    BlueCloth.new(description).to_html.html_safe
+  end
+
+  def title_highlighted(search_term)
+    highlight( title, search_term)
+  end
+
+  def latest_comment
+    comments.max_by { |comment| comment.updated_at }
   end
 
 end

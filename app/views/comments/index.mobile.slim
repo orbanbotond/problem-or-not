@@ -1,0 +1,13 @@
+div data-role='page' id='comments'
+  div data-role='header'
+    =link_to 'Back', problem_path(@comments.first.problem), {:'data-icon'=>"arrow-l"}
+    h1= @comments.first.problem.title
+    =link_to 'Express new oppinion', new_problem_comment_path(@comments.first.problem), :class => "ui-btn-right"
+  div data-role='content'
+    div data-role="collapsible-set"
+      - @comments.each do |comment|
+        div{'data-role'=>'collapsible', 'data-collapsed'=>'false'}
+          h3= "#{distance_of_time_in_words_to_now(comment.created_at)}: #{comment.oppinion.first(20)}"
+          p= comment.oppinion
+  div data-role="footer"
+    h6 or just a fragment of the past

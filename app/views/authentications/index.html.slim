@@ -1,0 +1,16 @@
+h1 Listing authentications
+
+table
+  tr
+    th User
+    th Provider
+    th Uid
+    th
+    th
+    th
+
+- @authentications.each do |authentication|
+  tr
+    td = authentication.user_id
+    td = authentication.provider
+    td = authentication.uid

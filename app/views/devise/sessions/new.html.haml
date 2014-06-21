@@ -23,9 +23,10 @@
     %p.text-center or alternatively you can login using you other accounts
     = link_to oauth_login_path( :facebook), {:alt => 'Login using facebook', :title => 'Login using facebook'} do
       - image_tag 'facebook_64.png', :alt => 'Login using facebook', :title => 'Login using facebook'
-
     = link_to oauth_login_path( :google_oauth2), {:alt => 'Login using google', :title => 'Login using google'} do
       - image_tag 'google_64.png', :alt => 'Login using google', :title => 'Login using google'
+    = link_to oauth_login_path( :twitter), {:alt => 'Login using twitter', :title => 'Login using twitter'} do
+      - image_tag 'twitter_128.png', :alt => 'Login using google', :title => 'Login using google', size: '64x64'
 .sign-up
   - if devise_mapping.registerable? && controller_name != 'registrations'
     .sign-up-button.text-center.rounded

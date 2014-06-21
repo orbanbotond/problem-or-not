@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby "2.1.0"
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.1'
 
 gem 'pg'
 gem 'pg_search', :git => 'git://github.com/Casecommons/pg_search.git'
@@ -13,27 +13,26 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'heroku'
-gem 'haml', '4.0.1.rc.1'
+gem 'slim'
 gem 'bluecloth'
 gem 'paper_trail'
 gem 'state_machine'
 gem 'cancan'
 gem 'taps'
 gem 'will_paginate'
-gem 'timeago', :git => 'git://github.com/orbanbotond/timeago.git'
-gem "jquery_mobile-rails"
 
-#TODO add twitter bootstrap
+gem 'sass-rails', '>= 3.2'
+gem 'bootstrap-sass', '~> 3.1.1'
 gem 'coffee-rails'
+gem 'jquery-rails'
+gem "jquery_mobile-rails"
 # Gems used only for assets and not required
 # in production environments by default.
 
 group :assets do
-  gem 'sass-rails'
+  gem 'sass-rails', '>= 3.2'
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -44,8 +43,7 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-gem 'pry'
+gem 'twitter'
 
 group :development do
   gem 'quiet_assets'
@@ -58,6 +56,9 @@ group :development do
 end
 
 group :development, :test do
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'spring'
   gem 'faker'
   gem 'rack-livereload'
 
