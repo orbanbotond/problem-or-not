@@ -1,4 +1,4 @@
-%h2.text-center Sign in
+h2.text-center Sign in
 .sign-in
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     .sign-in-fields
@@ -9,7 +9,7 @@
         = f.label :password
         = f.password_field :password
       - if devise_mapping.rememberable?
-        %div
+        div
           = f.check_box :remember_me
           = f.label :remember_me
     .sign-in-button
@@ -17,10 +17,10 @@
   .clear
   - if devise_mapping.recoverable? && controller_name != 'passwords'
     = link_to "Forgot your password?", new_password_path(resource_name)
-  %br
+  br
 
   .alternate-logins
-    %p.text-center or alternatively you can login using you other accounts
+    p.text-center or alternatively you can login using you other accounts
     = link_to oauth_login_path( :facebook), {:alt => 'Login using facebook', :title => 'Login using facebook'} do
       - image_tag 'facebook_64.png', :alt => 'Login using facebook', :title => 'Login using facebook'
     = link_to oauth_login_path( :google_oauth2), {:alt => 'Login using google', :title => 'Login using google'} do
