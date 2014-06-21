@@ -29,6 +29,10 @@ gem "jquery_mobile-rails"
 # Gems used only for assets and not required
 # in production environments by default.
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :assets do
   gem 'sass-rails', '>= 3.2'
   gem 'uglifier', '>= 1.0.3'

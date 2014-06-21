@@ -5,18 +5,18 @@
 post_id = null
 text = null
 
-jQuery ->
-  $('.draggable').draggable()
-  $( ".sortable" ).sortable();
-  $( ".sortable" ).disableSelection();
+# jQuery ->
+#   $('.draggable').draggable()
+#   $( ".sortable" ).sortable()
+#   $( ".sortable" ).disableSelection()
 
-jQuery ->
-  $('.droppable').droparea
-    instructions: "&nbsp;"
-    over        : 'drop link here!',
-    start: (e)->
-      problem_id = window.location.pathname.split('/')[2]
-      $.post('<%= Rails.application.routes.url_helpers.link_components_path %>', {problem_id: problem_id, link_component:{link: e.getData('Text')}})
+# jQuery ->
+#   $('.droppable').droparea
+#     instructions: "&nbsp;"
+#     over        : 'drop link here!',
+#     start: (e)->
+#       problem_id = window.location.pathname.split('/')[2]
+#       $.post('<%= Rails.application.routes.url_helpers.link_components_path %>', {problem_id: problem_id, link_component:{link: e.getData('Text')}})
 
 jQuery ->
   $('.edit_problem textarea, .new_problem textarea').keyup ->
