@@ -21,7 +21,6 @@ gem 'cancan'
 gem 'taps'
 gem 'will_paginate'
 
-gem 'sass-rails', '>= 3.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'coffee-rails'
 gem 'jquery-rails'
@@ -53,9 +52,6 @@ group :development do
   gem 'quiet_assets'
   gem 'localtunnel'
   gem 'sqlite3'
-  gem "spring"
-  gem "spring-commands-rspec"
-  gem 'pry-nav'
   gem 'rb-readline'
 end
 
@@ -63,6 +59,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-nav'
   gem 'spring'
+  gem "spring-commands-rspec"
   gem 'faker'
   gem 'rack-livereload'
 
@@ -71,7 +68,6 @@ group :development, :test do
   gem 'guard-livereload'
 
   gem 'annotate', ">=2.5.0"
-  gem 'guard-annotate'
 
   gem 'guard-annotate'
   gem 'database_cleaner'
